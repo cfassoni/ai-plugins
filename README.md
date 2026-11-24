@@ -11,13 +11,20 @@ ai-plugins/
 ├── .ai-memory.toml          # ai-memory workspace/project scope config
 ├── AGENTS.md                # Agent authoring rules and ai-memory routing
 ├── README.md                # Repository overview and installation guide
-└── btg-trader-desk/         # BTG Pactual Trader Desk local MCP plugin
-    ├── plugin.json          # Plugin manifest (name, version, description, prompts)
-    ├── mcp_config.json      # MCP server definitions
-    ├── README.md            # Plugin-specific documentation
-    ├── assets/              # Plugin icon / visual assets (e.g., logo.svg)
-    ├── rules/               # Always-on plugin rules (AGENTS.md)
-    └── skills/              # Agent Skills (<skill-name>/SKILL.md)
+├── btg-trader-desk/         # BTG Pactual Trader Desk local MCP plugin
+│   ├── plugin.json          # Plugin manifest (name, version, description, prompts)
+│   ├── mcp_config.json      # MCP server definitions
+│   ├── README.md            # Plugin-specific documentation
+│   ├── assets/              # Plugin icon / visual assets (e.g., logo.svg)
+│   ├── rules/               # Always-on plugin rules (AGENTS.md)
+│   └── skills/              # Agent Skills (<skill-name>/SKILL.md)
+└── mythos/                  # 11-agent Greek-mythology-inspired ecosystem plugin
+    ├── plugin.json          # Plugin manifest
+    ├── README.md            # Architecture, roster, and optional MCP snippets
+    ├── assets/              # Plugin icon (logo.svg)
+    ├── agents/              # 11 specialist subagent definitions (mythos-*.md)
+    ├── rules/               # Contextual Hermes router & guardrails (AGENTS.md)
+    └── skills/              # 11 specialist skills + zero-dep Python CLI tools
 ```
 
 ## Available Plugins
@@ -25,6 +32,7 @@ ai-plugins/
 | Plugin | Version | Description | Path |
 | :--- | :--- | :--- | :--- |
 | **BTG Trader Desk** | `1.0.0` | Connects to the local BTG Pactual Trader Desk MCP server (`http://localhost:7777/mcp`) for quotes, candlestick history, news, corporate events, portfolio positions, orders, financial balances, and research analyses. | [`btg-trader-desk/`](./btg-trader-desk/README.md) |
+| **Mythos** | `1.0.0` | An 11-agent Greek-mythology-inspired multi-specialist plugin covering Hermes routing, nutrition (`Higia`), fitness & MET/EPOC modeling (`Quiron`), memory/RAG (`Clio`), health record organization (`Epione`), architecture (`Daedalus`), engineering (`Hefesto`), wellbeing (`Psique`), philosophy (`Pitia`), deep research (`Argos`), and quantitative finance (`Plutus`). | [`mythos/`](./mythos/README.md) |
 
 ## Installation
 
@@ -48,6 +56,7 @@ Because each plugin uses standard Markdown rules, `SKILL.md` Agent Skills, and J
 | Plugin Component | Antigravity | Claude Code | Codex | Cursor |
 | :--- | :--- | :--- | :--- | :--- |
 | **MCP Servers** | `mcp_config.json` (auto-loaded) | Merge `mcpServers` into `~/.claude.json` or `.mcp.json` | Merge into `~/.codex/config.toml` | Merge `mcpServers` into `~/.cursor/mcp.json` or `.cursor/mcp.json` |
+| **Agents** | `agents/<name>.md` (auto-loaded) | Copy to `~/.claude/agents/` or `.claude/agents/` | Reference roles in `AGENTS.md` | Reference roles in `AGENTS.md` or custom modes |
 | **Skills** | `skills/<name>/SKILL.md` | Copy to `~/.claude/skills/<name>/` or `.claude/skills/<name>/` | Copy to `~/.agents/skills/<name>/` or `.agents/skills/<name>/` | Copy to `~/.cursor/skills/<name>/` or `.agents/skills/<name>/` |
 | **Rules** | `rules/AGENTS.md` | Append/include in `CLAUDE.md` | Append/include in `AGENTS.md` | Append/include in `AGENTS.md` or `.cursor/rules/` |
 

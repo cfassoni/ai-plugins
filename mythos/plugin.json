@@ -1,0 +1,13 @@
+{
+  "name": "mythos",
+  "displayName": "Mythos",
+  "version": "1.0.0",
+  "description": "An 11-agent Greek-mythology-inspired ecosystem covering intelligent routing, nutrition, strength coaching, memory/RAG archiving, health record organization, systems architecture, software engineering, behavioral wellbeing, spiritual/philosophical inquiry, deep research, and quantitative finance.",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Audit my latest strength workout and estimate MET + EPOC calorie burn, then coordinate a recovery meal plan with Higia",
+    "Design a clean architecture specification with Daedalus and map out the implementation backlog for Hefesto",
+    "Run a deep source-graded research brief with Argos on dividend ETFs and analyze portfolio allocation drift with Plutus"
+  ],
+  "author": "Local Plugin"
+}
