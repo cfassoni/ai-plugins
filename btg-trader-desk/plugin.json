@@ -1,0 +1,13 @@
+{
+  "name": "btg-trader-desk",
+  "displayName": "BTG Trader Desk",
+  "version": "1.0.0",
+  "description": "Connect to the local BTG Pactual Trader Desk MCP server (localhost:7777) for real-time quotes, candlestick history, news, corporate events, portfolio positions, orders, financial balances, and market analysis.",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Show my current portfolio positions and financial summary on BTG Trader Desk",
+    "Get the latest quote, news, and upcoming corporate events for VALE3 and PETR4",
+    "Fetch daily candlestick price history and technical analysis for PETR4"
+  ],
+  "author": "Local Plugin"
+}

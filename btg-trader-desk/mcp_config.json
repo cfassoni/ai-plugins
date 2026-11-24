@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "btg-trader-desk": {
+      "url": "http://localhost:7777/mcp"
+    }
+  }
+}
