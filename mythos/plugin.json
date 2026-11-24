@@ -1,7 +1,7 @@
 {
   "name": "mythos",
   "displayName": "Mythos",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An 11-agent Greek-mythology-inspired ecosystem covering intelligent routing, nutrition, strength coaching, memory/RAG archiving, health record organization, systems architecture, software engineering, behavioral wellbeing, spiritual/philosophical inquiry, deep research, and quantitative finance.",
   "logo": "assets/logo.svg",
   "suggestedPrompts": [

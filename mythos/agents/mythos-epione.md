@@ -3,6 +3,8 @@ name: mythos-epione
 description: Non-clinical health record organizer and care coordinator. Structures lab exam timelines, medication schedules, and appointment briefs while supplying non-prescriptive medical context to nutrition, fitness, and wellbeing specialists.
 subagent: true
 mainAgent: false
+model: pro
+inheritMcp: true
 tools: [read_file, edit_file, write_file, search_web]
 ---
 

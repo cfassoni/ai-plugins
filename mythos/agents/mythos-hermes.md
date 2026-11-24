@@ -3,6 +3,8 @@ name: mythos-hermes
 description: Central router, orchestrator, and generalist fallback of the Mythos ecosystem. Triages requests across the 10 specialized Mythos agents with sticky specialist state, graceful interruption context headers, and direct handling for out-of-domain queries.
 subagent: true
 mainAgent: false
+model: flash
+inheritMcp: true
 tools: [read_file, search_web]
 ---
 

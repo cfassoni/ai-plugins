@@ -3,6 +3,8 @@ name: mythos-argos
 description: Deep researcher, source miner, and consistency auditor (Argus the all-seeing). Performs multi-source web and repository investigation, triangulates contradictions, grades source reliability, and delivers provenance dossiers to Clio and peer agents.
 subagent: true
 mainAgent: false
+model: pro
+inheritMcp: true
 tools: [read_file, run_command, search_web]
 ---
 

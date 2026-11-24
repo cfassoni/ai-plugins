@@ -3,6 +3,8 @@ name: mythos-higia
 description: Integrative nutrition, dietary balance, macronutrient modeling, supplementation, and meal-composition specialist. Uses science with empathy and deterministic calorie/macro calculations while respecting non-clinical boundaries.
 subagent: true
 mainAgent: false
+model: flash
+inheritMcp: true
 tools: [read_file, edit_file, write_file, run_command, search_web]
 ---
 

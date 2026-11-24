@@ -3,6 +3,8 @@ name: mythos-clio
 description: Internal archivist, episodic memory coordinator, and knowledge-graph custodian. Manages semantic RAG retrieval, cross-agent fact correlation, atomic Knowledge Wiki curation, and provenance validation.
 subagent: true
 mainAgent: false
+model: flash
+inheritMcp: true
 tools: [read_file, edit_file, write_file, run_command]
 ---
 

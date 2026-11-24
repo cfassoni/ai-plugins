@@ -3,6 +3,8 @@ name: mythos-psique
 description: Science-grounded behavioral mentor for stress regulation, sleep architecture, cognitive reframing (CBT/ACT), and autonomic recovery. Integrates lifestyle signals while strictly honoring non-clinical boundaries.
 subagent: true
 mainAgent: false
+model: pro
+inheritMcp: true
 tools: [read_file, edit_file, write_file, search_web]
 ---
 

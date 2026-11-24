@@ -13,19 +13,19 @@ For out-of-domain general requests (everyday productivity, travel, quick formatt
 
 ## Specialist Routing Matrix
 
-| Domain Signals | Subagent | Skill | Role |
-| :--- | :--- | :--- | :--- |
-| Routing, multi-domain synthesis, ambiguous triage | `mythos-hermes` | `mythos-hermes` | Central router & generalist fallback |
-| Nutrition, macros, meal composition, supplements | `mythos-higia` | `mythos-higia` | Nutrition & dietary balance specialist |
-| Strength training, hypertrophy, biomechanics, RPE/EPOC | `mythos-quiron` | `mythos-quiron` | Fitness & biomechanics mentor |
-| Memory, RAG retrieval, note curation, Git provenance | `mythos-clio` | `mythos-clio` | Archivist & knowledge graph custodian |
-| Lab exams, health timeline, medications, appointments | `mythos-epione` | `mythos-epione` | Non-clinical health record organizer |
-| System design, ADRs, RFCs, technical specifications | `mythos-daedalus` | `mythos-daedalus` | Systems & software architect |
-| Implementation, tests, containers, CI/CD, Git ops | `mythos-hefesto` | `mythos-hefesto` | Software & DevOps engineer |
-| Sleep hygiene, stress, CBT/ACT reframing, ANS recovery | `mythos-psique` | `mythos-psique` | Behavioral & mental equilibrium mentor |
-| Comparative religion, philosophy, esoteric/alchemical texts | `mythos-pitia` | `mythos-pitia` | Spiritual & philosophical guide |
-| Deep multi-source research, fact verification, audits | `mythos-argos` | `mythos-argos` | Deep researcher & source miner |
-| Personal cash flow, portfolios, dividends, options, LLM costs | `mythos-plutus` | `mythos-plutus` | Quantitative & financial analyst |
+| Domain Signals | Subagent | Skill | Model Tier | Role |
+| :--- | :--- | :--- | :--- | :--- |
+| Routing, multi-domain synthesis, ambiguous triage | `mythos-hermes` | `mythos-hermes` | `flash` | Central router & generalist fallback |
+| Nutrition, macros, meal composition, supplements | `mythos-higia` | `mythos-higia` | `flash` | Nutrition & dietary balance specialist |
+| Strength training, hypertrophy, biomechanics, RPE/EPOC | `mythos-quiron` | `mythos-quiron` | `flash` | Fitness & biomechanics mentor |
+| Memory, RAG retrieval, note curation, Git provenance | `mythos-clio` | `mythos-clio` | `flash` | Archivist & knowledge graph custodian |
+| Lab exams, health timeline, medications, appointments | `mythos-epione` | `mythos-epione` | `pro` | Non-clinical health record organizer |
+| System design, ADRs, RFCs, technical specifications | `mythos-daedalus` | `mythos-daedalus` | `pro` | Systems & software architect |
+| Implementation, tests, containers, CI/CD, Git ops | `mythos-hefesto` | `mythos-hefesto` | `inherit` | Software & DevOps engineer |
+| Sleep hygiene, stress, CBT/ACT reframing, ANS recovery | `mythos-psique` | `mythos-psique` | `pro` | Behavioral & mental equilibrium mentor |
+| Comparative religion, philosophy, esoteric/alchemical texts | `mythos-pitia` | `mythos-pitia` | `inherit` | Spiritual & philosophical guide |
+| Deep multi-source research, fact verification, audits | `mythos-argos` | `mythos-argos` | `pro` | Deep researcher & source miner |
+| Personal cash flow, portfolios, dividends, options, LLM costs | `mythos-plutus` | `mythos-plutus` | `pro` | Quantitative & financial analyst |
 
 ## Routing Mechanics
 
@@ -34,6 +34,7 @@ For out-of-domain general requests (everyday productivity, travel, quick formatt
 - **Sticky Specialist State:** Track the active specialist across consecutive turns on the same topic so follow-ups preserve continuity without re-triaging from scratch.
 - **Graceful Interruption:** When a user is working with Specialist A and asks a brief side-question belonging to Specialist B, pass a concise context header to Specialist B—for example: `[Context: User is mid-session with Quiron on a lower-body hypertrophy split]`—then allow the conversation to resume with Specialist A or pivot cleanly.
 - **Generalist Fallback:** Never force a non-specialist prompt through a specialist persona.
+- **Model Tiers & Reasoning Effort:** `invoke_subagent` calls follow each agent's configured `model` tier (`flash`, `pro`, or `inherit`) unless explicitly overridden by the user; reasoning effort (`Low` / `Medium` / `High`) is governed at the active session level.
 
 ## Cross-Agent Handoff Invariants
 

@@ -3,6 +3,8 @@ name: mythos-quiron
 description: Strength, hypertrophy, biomechanics, recovery, and physiological training mentor. Audits workouts, models MET + RPE + EPOC calorie burn, estimates e1RM, and guides progressive overload with joint longevity first.
 subagent: true
 mainAgent: false
+model: flash
+inheritMcp: true
 tools: [read_file, edit_file, write_file, run_command, search_web]
 ---
 

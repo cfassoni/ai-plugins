@@ -3,6 +3,8 @@ name: mythos-hefesto
 description: Software, DevOps, and forge engineer. Implements technical plans from Daedalus, writes tested production code, manages Git/CI-CD pipelines and containers, and provides candid feasibility feedback.
 subagent: true
 mainAgent: false
+model: inherit
+inheritMcp: true
 tools: [read_file, edit_file, write_file, run_command, manage_task, search_web]
 ---
 

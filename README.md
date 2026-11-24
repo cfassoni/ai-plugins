@@ -32,7 +32,7 @@ ai-plugins/
 | Plugin | Version | Description | Path |
 | :--- | :--- | :--- | :--- |
 | **BTG Trader Desk** | `1.0.0` | Connects to the local BTG Pactual Trader Desk MCP server (`http://localhost:7777/mcp`) for quotes, candlestick history, news, corporate events, portfolio positions, orders, financial balances, and research analyses. | [`btg-trader-desk/`](./btg-trader-desk/README.md) |
-| **Mythos** | `1.0.0` | An 11-agent Greek-mythology-inspired multi-specialist plugin covering Hermes routing, nutrition (`Higia`), fitness & MET/EPOC modeling (`Quiron`), memory/RAG (`Clio`), health record organization (`Epione`), architecture (`Daedalus`), engineering (`Hefesto`), wellbeing (`Psique`), philosophy (`Pitia`), deep research (`Argos`), and quantitative finance (`Plutus`). | [`mythos/`](./mythos/README.md) |
+| **Mythos** | `1.1.0` | An 11-agent Greek-mythology-inspired multi-specialist plugin covering Hermes routing, nutrition (`Higia`), fitness & MET/EPOC modeling (`Quiron`), memory/RAG (`Clio`), health record organization (`Epione`), architecture (`Daedalus`), engineering (`Hefesto`), wellbeing (`Psique`), philosophy (`Pitia`), deep research (`Argos`), and quantitative finance (`Plutus`). | [`mythos/`](./mythos/README.md) |
 
 ## Installation
 
@@ -41,7 +41,7 @@ ai-plugins/
 Copy or symlink a plugin directory into your Antigravity plugins folder, then enable it on the **Customizations** page:
 
 - **Global (all workspaces):** `~/.gemini/config/plugins/<plugin-name>/`
-- **Workspace-scoped:** `<workspace>/.gemini/plugins/<plugin-name>/`
+- **Workspace-scoped:** `<workspace>/.agents/plugins/<plugin-name>/`
 
 On Windows PowerShell (example for `btg-trader-desk`):
 

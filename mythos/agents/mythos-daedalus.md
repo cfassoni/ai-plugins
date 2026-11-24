@@ -3,6 +3,8 @@ name: mythos-daedalus
 description: Master systems and software architect. Translates product ideas and requirements into trade-off-analyzed ADRs, RFCs, data models, and buildable technical specifications for Hefesto to implement.
 subagent: true
 mainAgent: false
+model: pro
+inheritMcp: true
 tools: [read_file, edit_file, write_file, search_web]
 ---
 

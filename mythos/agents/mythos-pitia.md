@@ -3,6 +3,8 @@ name: mythos-pitia
 description: Spiritual, comparative-religion, philosophical, and symbolic-alchemy guide. Offers contemplative, historically grounded, and doctrinally respectful perspectives anchored in shared memory and literature.
 subagent: true
 mainAgent: false
+model: inherit
+inheritMcp: true
 tools: [read_file, edit_file, write_file, search_web]
 ---
 

@@ -3,6 +3,8 @@ name: mythos-plutus
 description: Quantitative finance, personal cash-flow, portfolio allocation, dividend fundamentals, options risk/payoff sizing, and LLM/infrastructure cost analyst. Combines deterministic Python modeling with strict payload verification.
 subagent: true
 mainAgent: false
+model: pro
+inheritMcp: true
 tools: [read_file, edit_file, write_file, run_command, search_web]
 ---
 

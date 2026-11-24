@@ -47,19 +47,25 @@ A portable, 11-agent multi-specialist ecosystem inspired by Greek mythology. Coo
 
 ## Agent Roster
 
-| Agent | Archetype | Role | Skill | Native Tools | Local CLI Tool |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `mythos-hermes` | Messenger god | Central router & generalist fallback | `mythos-hermes` | `read_file`, `search_web` | — |
-| `mythos-higia` | Goddess of health | Integrative nutrition & meal balance | `mythos-higia` | `read_file`, `edit_file`, `write_file`, `run_command`, `search_web` | `nutrition_calc.py` |
-| `mythos-quiron` | Mentor of heroes | Strength, hypertrophy & biomechanics | `mythos-quiron` | `read_file`, `edit_file`, `write_file`, `run_command`, `search_web` | `quiron_engine.py` |
-| `mythos-clio` | Muse of history | Memory, RAG & provenance custodian | `mythos-clio` | `read_file`, `edit_file`, `write_file`, `run_command` | `provenance_validator.py` |
-| `mythos-epione` | Caretaker of healing | Non-clinical health record organizer | `mythos-epione` | `read_file`, `edit_file`, `write_file`, `search_web` | — |
-| `mythos-daedalus` | Master architect | Systems & software architecture | `mythos-daedalus` | `read_file`, `edit_file`, `write_file`, `search_web` | — |
-| `mythos-hefesto` | God of the forge | Software, tests, containers & CI/CD | `mythos-hefesto` | `read_file`, `edit_file`, `write_file`, `run_command`, `manage_task`, `search_web` | — |
-| `mythos-psique` | Personification of mind | Behavioral equilibrium, CBT/ACT & sleep | `mythos-psique` | `read_file`, `edit_file`, `write_file`, `search_web` | — |
-| `mythos-pitia` | Oracle of Delphi | Comparative religion, philosophy & alchemy | `mythos-pitia` | `read_file`, `edit_file`, `write_file`, `search_web` | — |
-| `mythos-argos` | The all-seeing seeker | Deep research, mining & source grading | `mythos-argos` | `read_file`, `run_command`, `search_web` | — |
-| `mythos-plutus` | Guardian of wealth | Quantitative finance, options & LLM costs | `mythos-plutus` | `read_file`, `edit_file`, `write_file`, `run_command`, `search_web` | `finance_calc.py` |
+| Agent | Archetype | Role | Skill | Model Tier | Native Tools | Local CLI Tool |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `mythos-hermes` | Messenger god | Central router & generalist fallback | `mythos-hermes` | `flash` | `read_file`, `search_web` | — |
+| `mythos-higia` | Goddess of health | Integrative nutrition & meal balance | `mythos-higia` | `flash` | `read_file`, `edit_file`, `write_file`, `run_command`, `search_web` | `nutrition_calc.py` |
+| `mythos-quiron` | Mentor of heroes | Strength, hypertrophy & biomechanics | `mythos-quiron` | `flash` | `read_file`, `edit_file`, `write_file`, `run_command`, `search_web` | `quiron_engine.py` |
+| `mythos-clio` | Muse of history | Memory, RAG & provenance custodian | `mythos-clio` | `flash` | `read_file`, `edit_file`, `write_file`, `run_command` | `provenance_validator.py` |
+| `mythos-epione` | Caretaker of healing | Non-clinical health record organizer | `mythos-epione` | `pro` | `read_file`, `edit_file`, `write_file`, `search_web` | — |
+| `mythos-daedalus` | Master architect | Systems & software architecture | `mythos-daedalus` | `pro` | `read_file`, `edit_file`, `write_file`, `search_web` | — |
+| `mythos-hefesto` | God of the forge | Software, tests, containers & CI/CD | `mythos-hefesto` | `inherit` | `read_file`, `edit_file`, `write_file`, `run_command`, `manage_task`, `search_web` | — |
+| `mythos-psique` | Personification of mind | Behavioral equilibrium, CBT/ACT & sleep | `mythos-psique` | `pro` | `read_file`, `edit_file`, `write_file`, `search_web` | — |
+| `mythos-pitia` | Oracle of Delphi | Comparative religion, philosophy & alchemy | `mythos-pitia` | `inherit` | `read_file`, `edit_file`, `write_file`, `search_web` | — |
+| `mythos-argos` | The all-seeing seeker | Deep research, mining & source grading | `mythos-argos` | `pro` | `read_file`, `run_command`, `search_web` | — |
+| `mythos-plutus` | Guardian of wealth | Quantitative finance, options & LLM costs | `mythos-plutus` | `pro` | `read_file`, `edit_file`, `write_file`, `run_command`, `search_web` | `finance_calc.py` |
+
+## Model Tiers & Reasoning Effort
+
+- **Per-Agent `model` Tiers:** Every agent definition in `agents/mythos-*.md` declares `inheritMcp: true` plus an abstract `model` tier (`flash` for low-latency routing, daily coaching, and memory retrieval; `pro` for high-stakes architecture, clinical organization, behavioral nuance, deep research, and quantitative finance; `inherit` to match the parent session model for implementation and contemplative guidance).
+- **Reasoning Effort & Sampling:** Reasoning effort (`Low`, `Medium`, `High`) is controlled at the active client session level (for example via `/effort` or `--effort` in Antigravity), rather than in per-agent Markdown frontmatter. Determinism for math and validation tasks is enforced via the bundled Python CLI tools.
+- **Cross-Client Portability:** Harnesses that do not use abstract `flash` / `pro` / `inherit` tiers (such as Claude Code, Codex, or Cursor) can ignore or map those fields to local model aliases when importing `agents/mythos-*.md`.
 
 ## Orchestration Mechanics
 
@@ -135,7 +141,7 @@ All bundled CLI tools require only Python 3.10+ standard library and support `--
 
 ## Cross-Client Installation
 
-- **Antigravity:** Copy `mythos/` to `~/.gemini/config/plugins/mythos/` (or `<workspace>/.gemini/plugins/mythos/`) and enable it on the **Customizations** page.
+- **Antigravity:** Copy `mythos/` to `~/.gemini/config/plugins/mythos/` (global) or `<workspace>/.agents/plugins/mythos/` (workspace-scoped) and enable it on the **Customizations** page.
 - **Claude Code:** Copy `agents/mythos-*.md` to `~/.claude/agents/` (or `.claude/agents/`), copy `skills/mythos-*` to `~/.claude/skills/`, and append `rules/AGENTS.md` to `CLAUDE.md`.
 - **Codex / Cursor:** Copy `skills/mythos-*` to `~/.agents/skills/` (or `~/.cursor/skills/`), append `rules/AGENTS.md` to `AGENTS.md` (or `.cursor/rules/`), and reference `agents/mythos-*.md` as role definitions.
 
