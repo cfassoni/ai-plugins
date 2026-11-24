@@ -81,7 +81,9 @@ Mythos bundles **`mythos-hevy`** (`npx -y hevy-mcp`) in `mcp_config.json` for **
 ### Bundled: Hevy (`mythos-hevy`)
 
 - **Transport:** Stdio (`npx -y hevy-mcp`, requires Node.js/npx)
-- **Setup (Antigravity):** Because `mythos-hevy` declares the `HEVY_API_KEY` variable, Antigravity stages the plugin **disabled** on first discovery. Open the **Mythos** plugin page under **Customizations**, enter your `HEVY_API_KEY`, and enable the plugin.
+- **Setup (Antigravity):** Because `mythos-hevy` declares the `HEVY_API_KEY` variable, Antigravity stages the plugin **disabled** on first discovery. Enter your `HEVY_API_KEY` and enable it via:
+  - **Antigravity App:** **Customizations > Installed > Mythos**
+  - **Antigravity CLI (`agy`):** Run **`/plugin`**, open **Installed**, select `mythos`, and press **`Space`**
 - **Setup (Other Clients):** Copy the `mythos-hevy` entry from `mcp_config.json` into your client's MCP config and supply your `HEVY_API_KEY` environment variable.
 
 ### Optional: Memory & Knowledge RAG (`mythos-clio` / `ai-memory`)
@@ -129,7 +131,7 @@ All bundled CLI tools require only Python 3.10+ standard library and support `--
 
 ## Cross-Client Installation
 
-- **Antigravity:** Copy `mythos/` to `~/.gemini/config/plugins/mythos/` (global) or `<workspace>/.agents/plugins/mythos/` (workspace-scoped) and enable it on the **Customizations** page.
+- **Antigravity:** Run `agy plugin install ./mythos`, or copy a real `mythos/` directory (avoid Windows junctions/symlinks) to `~/.gemini/config/plugins/mythos/` (global) or `<workspace>/.agents/plugins/mythos/` (workspace-scoped), then enable it via **Customizations > Installed** (App) or **`/plugin`** → **Installed** → **`Space`** (CLI).
 - **Claude Code:** Copy `agents/mythos-*.md` to `~/.claude/agents/` (or `.claude/agents/`), copy `skills/mythos-*` to `~/.claude/skills/`, and append `rules/AGENTS.md` to `CLAUDE.md`.
 - **Codex / Cursor:** Copy `skills/mythos-*` to `~/.agents/skills/` (or `~/.cursor/skills/`), append `rules/AGENTS.md` to `AGENTS.md` (or `.cursor/rules/`), and reference `agents/mythos-*.md` as role definitions.
 

@@ -39,10 +39,10 @@ ai-plugins/
 
 ### Antigravity (Native Plugin Layout)
 
-Copy or symlink a plugin directory into your Antigravity plugins folder, then enable it on the **Customizations** page:
+Install via the CLI (`agy plugin install ./<plugin-name>`) or copy a real plugin directory (avoid Windows directory junctions/symlinks, as the scanner skips reparse points) into your Antigravity plugins folder, then enable it in the App (**Customizations > Installed**) or CLI (**`/plugin`** → **Installed** → press **`Space`**):
 
 - **Global (all workspaces):** `~/.gemini/config/plugins/<plugin-name>/`
-- **Workspace-scoped:** `<workspace>/.agents/plugins/<plugin-name>/`
+- **Workspace-scoped:** `<workspace>/.agents/plugins/<plugin-name>/` *(also supports `.agent/`, `_agents/`, `_agent/`, or declaring entries in `<workspace>/.agents/plugins.json`)*
 
 On Windows PowerShell (example for `btg-trader-desk`):
 
