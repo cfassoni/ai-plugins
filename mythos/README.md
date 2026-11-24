@@ -74,11 +74,17 @@ A portable, 11-agent multi-specialist ecosystem inspired by Greek mythology. Coo
 - **Graceful Interruption:** Side-questions to another specialist receive a concise `[Context: ...]` header so cross-domain guidance remains coherent.
 - **Generalist Fallback:** Out-of-domain requests (travel, everyday formatting, general reasoning) are answered directly without specialist overhead.
 
-## Optional Bring-Your-Own-MCP Integrations
+## Bundled & Optional MCP Integrations
 
-Mythos intentionally ships **without** a bundled `mcp_config.json` so it loads immediately without global MCP name collisions. Each specialist skill automatically leverages compatible MCP servers when installed, and falls back gracefully to native tools and CLI scripts when absent.
+Mythos bundles **`mythos-hevy`** (`npx -y hevy-mcp`) in `mcp_config.json` for **Quiron** (`mythos-quiron`), while keeping memory, brokerage, and search MCPs optional (*Bring-Your-Own-MCP*) so they never collide with existing host servers.
 
-### 1. Memory & Knowledge RAG (`mythos-clio` / `ai-memory`)
+### Bundled: Hevy (`mythos-hevy`)
+
+- **Transport:** Stdio (`npx -y hevy-mcp`, requires Node.js/npx)
+- **Setup (Antigravity):** Because `mythos-hevy` declares the `HEVY_API_KEY` variable, Antigravity stages the plugin **disabled** on first discovery. Open the **Mythos** plugin page under **Customizations**, enter your `HEVY_API_KEY`, and enable the plugin.
+- **Setup (Other Clients):** Copy the `mythos-hevy` entry from `mcp_config.json` into your client's MCP config and supply your `HEVY_API_KEY` environment variable.
+
+### Optional: Memory & Knowledge RAG (`mythos-clio` / `ai-memory`)
 
 Used by **Clio** and all specialists for semantic RAG search and episodic user context:
 
@@ -93,25 +99,7 @@ Used by **Clio** and all specialists for semantic RAG search and episodic user c
 }
 ```
 
-### 2. Strength & Workout Logs (`hevy`)
-
-Used by **Quiron** to inspect workouts, routines, sets, and body measurements:
-
-```json
-{
-  "mcpServers": {
-    "hevy": {
-      "command": "npx",
-      "args": ["-y", "hevy-mcp"],
-      "env": {
-        "HEVY_API_KEY": "${HEVY_API_KEY}"
-      }
-    }
-  }
-}
-```
-
-### 3. Brokerage & Market Quotes (`btg-trader-desk`)
+### Optional: Brokerage & Market Quotes (`btg-trader-desk`)
 
 Used by **Plutus** for verified quotes, dividends/events, portfolio positions, and financial balances (see [`../btg-trader-desk/`](../btg-trader-desk/README.md)):
 
@@ -126,7 +114,7 @@ Used by **Plutus** for verified quotes, dividends/events, portfolio positions, a
 }
 ```
 
-### 4. Deep Search Engine (Optional for Argos)
+### Optional: Deep Search Engine (for Argos)
 
 **Argos** uses native `search_web` by default and can optionally pair with a local SearXNG or web-mining MCP server configured in your host client.
 
@@ -148,6 +136,7 @@ All bundled CLI tools require only Python 3.10+ standard library and support `--
 ## File Inventory
 
 - `plugin.json` — Plugin manifest
+- `mcp_config.json` — Bundled `mythos-hevy` MCP server configuration (`HEVY_API_KEY` variable)
 - `assets/logo.svg` — Plugin icon
 - `rules/AGENTS.md` — Contextual Hermes routing, handoff invariants, and universal guardrails
 - `agents/mythos-*.md` — 11 standalone subagent definitions and harmonized SOULs

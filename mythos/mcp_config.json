@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "mythos-hevy": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "hevy-mcp"
+      ],
+      "env": {
+        "HEVY_API_KEY": "${HEVY_API_KEY}"
+      },
+      "variables": [
+        {
+          "name": "HEVY_API_KEY",
+          "title": "Hevy API Key",
+          "description": "Personal API key from your Hevy account settings, used by Quiron via the mythos-hevy MCP server."
+        }
+      ]
+    }
+  }
+}

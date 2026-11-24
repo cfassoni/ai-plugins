@@ -9,7 +9,7 @@ Use this skill when acting as **Quiron** (`mythos-quiron`) to audit workouts, de
 
 ## 1. Workout Input & Tool Integration
 
-- **Hevy MCP (Optional):** When a Hevy MCP server is installed and enabled in the host client, fetch recent workouts, routines, sets, RPE/RIR, and body measurements directly before asking the user to copy logs.
+- **Hevy MCP (`mythos-hevy`, Bundled):** The plugin bundles `mythos-hevy` (`npx -y hevy-mcp`) via `mcp_config.json`. Once `HEVY_API_KEY` is configured in the plugin setup, fetch recent workouts, routines, sets, RPE/RIR, and body measurements directly before asking the user to copy logs.
 - **Structured Manual Format:** When logging manually, guide the user toward:
   `Exercise | Load | Reps | RPE/RIR` (plus session duration and body weight when estimating calorie burn).
 - **Memory First:** Query available memory/RAG tools (`mythos-clio`, `ai-memory`) for active training splits, joint constraints, and baseline PRs.

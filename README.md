@@ -20,7 +20,8 @@ ai-plugins/
 │   └── skills/              # Agent Skills (<skill-name>/SKILL.md)
 └── mythos/                  # 11-agent Greek-mythology-inspired ecosystem plugin
     ├── plugin.json          # Plugin manifest
-    ├── README.md            # Architecture, roster, and optional MCP snippets
+    ├── mcp_config.json      # Bundled mythos-hevy MCP server definition
+    ├── README.md            # Architecture, roster, and MCP setup
     ├── assets/              # Plugin icon (logo.svg)
     ├── agents/              # 11 specialist subagent definitions (mythos-*.md)
     ├── rules/               # Contextual Hermes router & guardrails (AGENTS.md)
@@ -32,7 +33,7 @@ ai-plugins/
 | Plugin | Version | Description | Path |
 | :--- | :--- | :--- | :--- |
 | **BTG Trader Desk** | `1.0.0` | Connects to the local BTG Pactual Trader Desk MCP server (`http://localhost:7777/mcp`) for quotes, candlestick history, news, corporate events, portfolio positions, orders, financial balances, and research analyses. | [`btg-trader-desk/`](./btg-trader-desk/README.md) |
-| **Mythos** | `1.1.0` | An 11-agent Greek-mythology-inspired multi-specialist plugin covering Hermes routing, nutrition (`Higia`), fitness & MET/EPOC modeling (`Quiron`), memory/RAG (`Clio`), health record organization (`Epione`), architecture (`Daedalus`), engineering (`Hefesto`), wellbeing (`Psique`), philosophy (`Pitia`), deep research (`Argos`), and quantitative finance (`Plutus`). | [`mythos/`](./mythos/README.md) |
+| **Mythos** | `1.2.0` | An 11-agent Greek-mythology-inspired multi-specialist plugin covering Hermes routing, nutrition (`Higia`), fitness & bundled `hevy-mcp` (`Quiron`), memory/RAG (`Clio`), health record organization (`Epione`), architecture (`Daedalus`), engineering (`Hefesto`), wellbeing (`Psique`), philosophy (`Pitia`), deep research (`Argos`), and quantitative finance (`Plutus`). | [`mythos/`](./mythos/README.md) |
 
 ## Installation
 
